@@ -3,8 +3,8 @@ import { validateUser } from "@/lib/auth";
 import { getUser } from "@/components/actions/user";
 
 export async function GET(
-  req: NextRequest, 
-  { params }: { params: { userId: string } }
+  request: NextRequest, 
+  { params }: { params: Promise<{ userId: string }> }
 ) {
     const session = await validateUser();
     if (!session) {
