@@ -1,4 +1,6 @@
 'use client'
+import TransactionForm from "@/components/Transaction"
+import ShowTransactions from "@/components/Fetchtransaction"
 import { useQuery ,useMutation,useQueryClient} from "@tanstack/react-query"
 import { useParams } from "next/navigation"
 import { User } from "@/components/actions/user"
@@ -104,6 +106,8 @@ const [amount,setAmount] = useState<string>('')
 
      <section className="bg-white p-4 rounded-lg mt-6">
         <h2 className="font-bold">Transactions</h2>
+        <TransactionForm email={data.email} />
+        <ShowTransactions email={data.email} />
      </section>
 
         </div>
