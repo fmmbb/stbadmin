@@ -123,7 +123,7 @@ const ShowTransactions = ({ email }: TransactionsProps) => {
                 </p>
 
                 <p>
-                  <span className="font-semibold">Amount:</span> ₦
+                  <span className="font-semibold">Amount:</span> $
                   {transaction.amount.toLocaleString()}
                 </p>
 
