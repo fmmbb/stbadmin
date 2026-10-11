@@ -19,21 +19,29 @@ export type User = {
 export interface Userlistperson{id:string,email:string,firstname:string,lastname:string}
 
 //firebase function to get user's name and email
-async function getUsersWithFirebase(){
-    const adminApp = await initAdmin()
 
-    const adminDb = adminApp.firestore()
+async function getUsersWithFirebase(): Promise<Userlistperson[]> {
+    const adminApp = await initAdmin();
+    const adminDb = adminApp.firestore();
 
-    const snapShot = await adminDb.collection("UserInfo").get()
-    const users:any[] = snapShot.docs.map((doc)=> (
-           { id:doc.id,
-            ...doc.data()}
-    ))
+    const snapShot = await adminDb
+        .collection("users")
+        .where("bnk", "==", "stb")
+        .get();
 
-    return users
+    const users: Userlistperson[] = snapShot.docs.map((doc) => {
+        const data = doc.data();
 
+        return {
+            id: doc.id,
+            email: data.email,
+            firstname: data.firstname,
+            lastname: data.lastname,
+        };
+    });
+
+    return users;
 }
-
 
 
 export async function getUsers(session:string):Promise<Userlistperson[]>{

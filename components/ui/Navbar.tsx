@@ -43,7 +43,7 @@ export default function Navbar() {
         </div>
 
         {/* Center/Right: Header */}
-        <header className="font-bold text-center w-3/5">ATB ADMIN</header>
+        <header className="font-bold text-center w-3/5">SOUTHERN TRUSTS</header>
 
         {/* Right: Logout / empty space */}
         <div className="w-1/5 flex justify-end">

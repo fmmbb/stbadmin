@@ -9,8 +9,8 @@ export async function login(initialState:any,formData: FormData) {
   const password = formData.get("password");
   // Replace with DB check
   if (
-    email !== "americatrustbank" ||
-    password !== "ATB2026"
+    email !== "SouthernTrusts" ||
+    password !== "Asap@247"
   ) {
     return {
         error:"Email or Password Invalid"
